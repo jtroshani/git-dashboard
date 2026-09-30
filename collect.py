@@ -36,7 +36,7 @@ def main():
     history = load_history()
     owner = gh("api", "user")["login"]
     repos = gh("repo", "list", owner, "--limit", "1000", "--source",
-               "--json", "name,visibility,url,stargazerCount,description")
+               "--json", "name,visibility,url,stargazerCount,description,homepageUrl")
 
     for r in repos:
         name = r["name"]
@@ -50,9 +50,15 @@ def main():
             print(f"skip {full}: {e}", file=sys.stderr)
             continue
 
+        try:
+            site = gh("api", f"repos/{full}/pages")["html_url"]
+        except RuntimeError:
+            site = r["homepageUrl"] or ""
+
         entry = history["repos"].setdefault(name, {"days": {}})
         entry.update(url=r["url"], visibility=r["visibility"],
-                     stars=r["stargazerCount"], description=r["description"] or "")
+                     stars=r["stargazerCount"], description=r["description"] or "",
+                     site=site)
         days = entry["days"]
         # Newer fetches overwrite older values for the same day (the most recent
         # day is partial until it closes).

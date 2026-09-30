@@ -91,6 +91,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/AIHigherEdHub/",
    "stars": 0,
    "url": "https://github.com/jtroshani/AIHigherEdHub",
    "visibility": "PUBLIC"
@@ -185,6 +186,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/AIPMHub/",
    "stars": 0,
    "url": "https://github.com/jtroshani/AIPMHub",
    "visibility": "PUBLIC"
@@ -279,6 +281,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/AlbanianRevolution/",
    "stars": 0,
    "url": "https://github.com/jtroshani/AlbanianRevolution",
    "visibility": "PUBLIC"
@@ -373,6 +376,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/ChangeManagement/",
    "stars": 0,
    "url": "https://github.com/jtroshani/ChangeManagement",
    "visibility": "PUBLIC"
@@ -467,6 +471,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/DATP/",
    "stars": 1,
    "url": "https://github.com/jtroshani/DATP",
    "visibility": "PUBLIC"
@@ -561,6 +566,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/FlowChart/",
    "stars": 0,
    "url": "https://github.com/jtroshani/FlowChart",
    "visibility": "PUBLIC"
@@ -655,6 +661,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/GanttChartBuilder/",
    "stars": 0,
    "url": "https://github.com/jtroshani/GanttChartBuilder",
    "visibility": "PUBLIC"
@@ -749,6 +756,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/ImageToPDF/",
    "stars": 1,
    "url": "https://github.com/jtroshani/ImageToPDF",
    "visibility": "PUBLIC"
@@ -843,6 +851,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/LinkSnap/",
    "stars": 0,
    "url": "https://github.com/jtroshani/LinkSnap",
    "visibility": "PUBLIC"
@@ -937,6 +946,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/NewsHub/",
    "stars": 0,
    "url": "https://github.com/jtroshani/NewsHub",
    "visibility": "PUBLIC"
@@ -1031,6 +1041,7 @@
    "description": "A tiny macOS menu-bar app: press \u2318\u21e72, drag a box, mark it up, and it's on your clipboard.",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/QuickSnap/",
    "stars": 0,
    "url": "https://github.com/jtroshani/QuickSnap",
    "visibility": "PUBLIC"
@@ -1125,6 +1136,7 @@
    "description": "Paste a long link, get a short one. A clean single-page URL shortener by Jetmir Troshani.",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/ShortLink/",
    "stars": 0,
    "url": "https://github.com/jtroshani/ShortLink",
    "visibility": "PUBLIC"
@@ -1219,6 +1231,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/Smart-Backpack-Organizer/",
    "stars": 0,
    "url": "https://github.com/jtroshani/Smart-Backpack-Organizer",
    "visibility": "PUBLIC"
@@ -1313,6 +1326,7 @@
    "description": "",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/TeachingwithAI/",
    "stars": 0,
    "url": "https://github.com/jtroshani/TeachingwithAI",
    "visibility": "PUBLIC"
@@ -1407,8 +1421,104 @@
    "description": "Interactive furnished 3D model of a fourth floor apartment",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/apartment-3d/",
    "stars": 0,
    "url": "https://github.com/jtroshani/apartment-3d",
+   "visibility": "PUBLIC"
+  },
+  "git-dashboard": {
+   "days": {
+    "2026-09-17": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-18": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-19": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-20": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-21": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-22": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-23": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-24": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-25": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-26": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-27": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-28": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-29": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    },
+    "2026-09-30": {
+     "cloners": 0,
+     "clones": 0,
+     "views": 0,
+     "visitors": 0
+    }
+   },
+   "description": "Daily/weekly/monthly/yearly traffic dashboard for my GitHub repos",
+   "paths": [],
+   "referrers": [],
+   "site": "https://jtroshani.github.io/git-dashboard/",
+   "stars": 0,
+   "url": "https://github.com/jtroshani/git-dashboard",
    "visibility": "PUBLIC"
   },
   "period-mirror": {
@@ -1501,6 +1611,7 @@
    "description": "Period Mirror \u2014 a privacy-first personal menstrual health companion. Mobile-first PWA prototype: learns your own baseline and surfaces meaningful changes (\"Me vs. Me\"), never diagnostic.",
    "paths": [],
    "referrers": [],
+   "site": "https://jtroshani.github.io/period-mirror/",
    "stars": 0,
    "url": "https://github.com/jtroshani/period-mirror",
    "visibility": "PUBLIC"
@@ -1602,10 +1713,11 @@
     }
    ],
    "referrers": [],
+   "site": "https://jtroshani.github.io/spot-flow-desk/",
    "stars": 0,
    "url": "https://github.com/jtroshani/spot-flow-desk",
    "visibility": "PUBLIC"
   }
  },
- "updated": "2026-09-29T23:56:38+00:00"
+ "updated": "2026-09-30T00:05:34+00:00"
 }

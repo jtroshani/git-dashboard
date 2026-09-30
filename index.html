@@ -61,6 +61,7 @@ td.zero { color: var(--text-muted); }
 td.cur, th.cur { font-weight: 600; }
 td a { color: var(--text-primary); text-decoration: none; }
 td a:hover { text-decoration: underline; }
+td a.repo { color: var(--text-muted); font-size: 12px; margin-left: 4px; }
 .refs { color: var(--text-secondary); font-size: 12px; white-space: normal; text-align: left; }
 .tip { position: fixed; pointer-events: none; background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.12); display: none; z-index: 5; }
@@ -228,7 +229,9 @@ function render() {
     <tr><th data-k="name">Repository${arrow("name")}</th>${cols("views")}${cols("clones")}<th style="text-align:left;cursor:default">Top referrers (14 d)</th></tr></thead><tbody>`;
   for (const o of rows) {
     const cell = k => `<td class="${o[k] ? "" : "zero"} ${k.endsWith(":" + period) ? "cur" : ""}">${fmt(o[k])}</td>`;
-    h += `<tr data-r="${o.name}" class="${o.name === selected ? "sel" : ""}"><td><a href="${D.repos[o.name].url}" target="_blank" rel="noopener">${o.name}</a></td>
+    h += `<tr data-r="${o.name}" class="${o.name === selected ? "sel" : ""}"><td>${D.repos[o.name].site
+        ? `<a href="${D.repos[o.name].site}" target="_blank" rel="noopener">${o.name}</a> <a class="repo" href="${D.repos[o.name].url}" target="_blank" rel="noopener">repo</a>`
+        : `<a href="${D.repos[o.name].url}" target="_blank" rel="noopener">${o.name}</a>`}</td>
       ${ps.map(p => cell("views:" + p)).join("")}${ps.map(p => cell("clones:" + p)).join("")}
       <td class="refs">${o.refs || "—"}</td></tr>`;
   }
@@ -239,7 +242,7 @@ function render() {
     const k = th.dataset.k; sortDir = k === sortKey ? -sortDir : (k === "name" ? 1 : -1); sortKey = k; render();
   });
   tbl.querySelectorAll("tbody tr").forEach(tr => tr.onclick = e => {
-    if (e.target.tagName === "A") return;
+    if (e.target.closest("a")) return;
     selected = selected === tr.dataset.r ? null : tr.dataset.r; render();
   });
 
