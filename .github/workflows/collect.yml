@@ -24,8 +24,8 @@ jobs:
           python3 collect.py
       - name: Commit data
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "Jetmir Troshani"
+          git config user.email "jtroshani@gmail.com"
           git add data
           git diff --cached --quiet && exit 0
           git commit -m "Update traffic data"
