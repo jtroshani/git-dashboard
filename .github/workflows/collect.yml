@@ -29,5 +29,5 @@ jobs:
           git config user.email "jtroshani@gmail.com"
           git add data
           git diff --cached --quiet && exit 0
-          git commit -m "Update traffic data"
+          git commit -m "Update site visits"
           git push
