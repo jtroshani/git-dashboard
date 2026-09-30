@@ -8,7 +8,9 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone
+import urllib.parse
+import urllib.request
+from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT, "data")
@@ -22,6 +24,52 @@ def gh(*args):
     if out.returncode != 0:
         raise RuntimeError(out.stderr.strip())
     return json.loads(out.stdout)
+
+
+def goatcounter(path, **params):
+    site = os.environ.get("GOATCOUNTER_SITE", "jtroshani")
+    url = f"https://{site}.goatcounter.com/api/v0/{path}?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={
+        "Authorization": "Bearer " + os.environ["GOATCOUNTER_TOKEN"],
+        "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return json.load(resp)
+
+
+def collect_site_visits(history):
+    """Merge the last 14 days of GoatCounter visits into each repo's days.
+
+    Every site lives at <owner>.github.io/<repo>/..., so the first path segment
+    names the repo.
+    """
+    if not os.environ.get("GOATCOUNTER_TOKEN"):
+        print("GOATCOUNTER_TOKEN not set; skipping site visits", file=sys.stderr)
+        return
+    today = datetime.now(timezone.utc).date()
+    start = (today - timedelta(days=13)).isoformat()
+    totals, seen = {}, []
+    while True:
+        params = dict(start=start, end=today.isoformat(), limit=100)
+        if seen:
+            params["exclude_paths"] = ",".join(map(str, seen))
+        page = goatcounter("stats/hits", **params)
+        for hit in page.get("hits", []):
+            seen.append(hit["path_id"])
+            repo = hit["path"].strip("/").split("/")[0]
+            if hit.get("event") or repo not in history["repos"]:
+                continue
+            for st in hit.get("stats", []):
+                n = st.get("daily", sum(st.get("hourly") or []))
+                key = (repo, st["day"])
+                totals[key] = totals.get(key, 0) + n
+        if not page.get("more"):
+            break
+    for repo, entry in history["repos"].items():
+        for i in range(14):
+            day = (today - timedelta(days=i)).isoformat()
+            if day >= history.setdefault("visits_since", today.isoformat()):
+                entry["days"].setdefault(day, {})["site_visits"] = totals.get((repo, day), 0)
+    print(f"ok   site visits for {len({r for r, _ in totals})} sites")
 
 
 def load_history():
@@ -80,6 +128,7 @@ def main():
         entry["paths"] = paths
         print(f"ok   {full}")
 
+    collect_site_visits(history)
     history["owner"] = owner
     history["updated"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     with open(HISTORY, "w") as f:

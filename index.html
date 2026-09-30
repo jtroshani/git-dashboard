@@ -95,7 +95,7 @@ td.about { text-align: left; white-space: normal; min-width: 220px; max-width: 3
   <section class="tiles" id="tiles"></section>
 
   <section class="charts">
-    <div class="card"><h2><span class="dot" style="background:var(--series-1)"></span>Views per day</h2><div class="hint" id="h1"></div><svg id="c-views"></svg></div>
+    <div class="card"><h2><span class="dot" style="background:var(--series-1)"></span>Site visits per day</h2><div class="hint" id="h1"></div><svg id="c-views"></svg></div>
     <div class="card"><h2><span class="dot" style="background:var(--series-2)"></span>Clones per day</h2><div class="hint" id="h2"></div><svg id="c-clones"></svg></div>
   </section>
 
@@ -117,7 +117,7 @@ const PLABEL = { day: "Daily", week: "Weekly", month: "Monthly", year: "Yearly" 
 const PDESC = { day: "latest full day", week: "last 7 days", month: "last 30 days", year: "last 365 days" };
 let period = "week", selected = null, sortKey = "clones:week", sortDir = -1;
 try { period = localStorage.getItem("period") || period; } catch (e) {}
-sortKey = "clones:" + period;
+sortKey = "visits:" + period;
 
 const fmt = n => n.toLocaleString();
 const iso = d => d.toISOString().slice(0, 10);
@@ -129,6 +129,7 @@ const firstDate = allDates.reduce((a, b) => a < b ? a : b);
 // Anchor on the last full UTC day: GitHub's "today" is still filling in.
 const lastData = allDates.reduce((a, b) => a > b ? a : b);
 const todayUTC = iso(new Date());
+const visitsSince = D.visits_since || todayUTC;
 const anchor = lastData >= todayUTC ? addDays(todayUTC, -1) : lastData;
 
 function range(p) { const n = PERIODS[p]; return [addDays(anchor, -(n - 1)), anchor]; }
@@ -138,12 +139,12 @@ function sum(names, p, key) {
     if (d >= from && d <= to) t += v[key] || 0;
   return t;
 }
-function series(names, p, key) {
+function series(names, p, key, since = firstDate) {
   const n = Math.max(PERIODS[p], 14); const out = [];
   for (let i = n - 1; i >= 0; i--) {
     const d = addDays(anchor, -i); let t = 0;
     for (const r of names) t += (D.repos[r].days[d] || {})[key] || 0;
-    out.push({ d, v: t, collected: d >= firstDate });
+    out.push({ d, v: t, collected: d >= since });
   }
   return out;
 }
@@ -200,25 +201,25 @@ function render() {
     ? `Showing <b>${selected}</b><button id="clr">Show all repos</button>` : "Showing all repositories";
   if (selected) document.getElementById("clr").onclick = () => { selected = null; render(); };
 
-  const partial = from < firstDate ? `<div class="note">History starts ${firstDate}</div>` : `<div class="note">${PDESC[period]}</div>`;
+  const note = since => from < since ? `<div class="note">Tracking since ${since}</div>` : `<div class="note">${PDESC[period]}</div>`;
   const tiles = [
-    ["Views", "views", "var(--series-1)"], ["Unique visitors", "visitors", "var(--series-1)"],
-    ["Clones", "clones", "var(--series-2)"], ["Unique cloners", "cloners", "var(--series-2)"],
+    ["Site visits", "site_visits", "var(--series-1)", visitsSince], ["GitHub page views", "views", "", firstDate],
+    ["Clones", "clones", "var(--series-2)", firstDate], ["Unique cloners", "cloners", "var(--series-2)", firstDate],
   ];
-  document.getElementById("tiles").innerHTML = tiles.map(([l, k, c]) =>
-    `<div class="tile"><div class="label"><span class="dot" style="background:${c}"></span>${l}</div><div class="value">${fmt(sum(names, period, k))}</div>${partial}</div>`).join("");
+  document.getElementById("tiles").innerHTML = tiles.map(([l, k, c, since]) =>
+    `<div class="tile"><div class="label">${c ? `<span class="dot" style="background:${c}"></span>` : ""}${l}</div><div class="value">${fmt(sum(names, period, k))}</div>${note(since)}</div>`).join("");
 
   const n = Math.max(PERIODS[period], 14);
-  document.getElementById("h1").textContent = document.getElementById("h2").textContent =
-    `Last ${n} days${n > 14 ? " · shaded days were before collection started" : ""}`;
-  chart(document.getElementById("c-views"), series(names, period, "views"), "var(--series-1)", "Views");
+  document.getElementById("h1").textContent = `Last ${n} days · visits to the live sites · shaded days were before tracking started`;
+  document.getElementById("h2").textContent = `Last ${n} days${n > 14 ? " · shaded days were before collection started" : ""}`;
+  chart(document.getElementById("c-views"), series(names, period, "site_visits", visitsSince), "var(--series-1)", "Site visits");
   chart(document.getElementById("c-clones"), series(names, period, "clones"), "var(--series-2)", "Clones");
 
   // Table: views + clones for all four periods, current period emphasised.
   const ps = Object.keys(PERIODS);
   const rows = repos.map(r => {
     const o = { name: r };
-    for (const p of ps) { o["views:" + p] = sum([r], p, "views"); o["clones:" + p] = sum([r], p, "clones"); }
+    for (const p of ps) { o["visits:" + p] = sum([r], p, "site_visits"); o["views:" + p] = sum([r], p, "views"); o["clones:" + p] = sum([r], p, "clones"); }
     const refs = D.repos[r].referrers || [];
     o.refs = refs.slice(0, 3).map(x => `${x.referrer} (${x.count})`).join(", ");
     return o;
@@ -226,17 +227,17 @@ function render() {
   rows.sort((a, b) => sortKey === "name" ? sortDir * a.name.localeCompare(b.name) : sortDir * (a[sortKey] - b[sortKey]) || a.name.localeCompare(b.name));
   const arrow = k => k === sortKey ? (sortDir < 0 ? " ↓" : " ↑") : "";
   const cols = m => ps.map(p => `<th data-k="${m}:${p}" class="${p === period ? "cur" : ""}">${PLABEL[p]}${arrow(m + ":" + p)}</th>`).join("");
-  let h = `<thead><tr class="group"><th></th><th></th><th colspan="4">Views</th><th colspan="4">Clones</th><th></th></tr>
-    <tr><th data-k="name">Repository${arrow("name")}</th><th class="about">What it is</th>${cols("views")}${cols("clones")}<th style="text-align:left;cursor:default">Top referrers (14 d)</th></tr></thead><tbody>`;
+  let h = `<thead><tr class="group"><th></th><th></th><th colspan="4">Site visits</th><th colspan="4">GitHub page views</th><th colspan="4">Clones</th><th></th></tr>
+    <tr><th data-k="name">Repository${arrow("name")}</th><th class="about">What it is</th>${cols("visits")}${cols("views")}${cols("clones")}<th style="text-align:left;cursor:default">Top referrers (14 d)</th></tr></thead><tbody>`;
   for (const o of rows) {
     const cell = k => `<td class="${o[k] ? "" : "zero"} ${k.endsWith(":" + period) ? "cur" : ""}">${fmt(o[k])}</td>`;
     h += `<tr data-r="${o.name}" class="${o.name === selected ? "sel" : ""}"><td><a href="${D.repos[o.name].site || D.repos[o.name].url}" target="_blank" rel="noopener">${o.name}</a></td>
       <td class="about">${D.repos[o.name].about || D.repos[o.name].description || "—"}</td>
-      ${ps.map(p => cell("views:" + p)).join("")}${ps.map(p => cell("clones:" + p)).join("")}
+      ${ps.map(p => cell("visits:" + p)).join("")}${ps.map(p => cell("views:" + p)).join("")}${ps.map(p => cell("clones:" + p)).join("")}
       <td class="refs">${o.refs || "—"}</td></tr>`;
   }
   const tot = k => ps.map(p => `<td class="${p === period ? "cur" : ""}"><b>${fmt(sum(repos, p, k))}</b></td>`).join("");
-  h += `</tbody><tfoot><tr><td><b>Total</b></td><td></td>${tot("views")}${tot("clones")}<td></td></tr></tfoot>`;
+  h += `</tbody><tfoot><tr><td><b>Total</b></td><td></td>${tot("site_visits")}${tot("views")}${tot("clones")}<td></td></tr></tfoot>`;
   const tbl = document.getElementById("tbl"); tbl.innerHTML = h;
   tbl.querySelectorAll("thead th[data-k]").forEach(th => th.onclick = () => {
     const k = th.dataset.k; sortDir = k === sortKey ? -sortDir : (k === "name" ? 1 : -1); sortKey = k; render();
@@ -247,7 +248,7 @@ function render() {
   });
 
   document.getElementById("foot").innerHTML =
-    `Data from the GitHub traffic API, last collected ${new Date(D.updated).toLocaleString()}. ` +
+    `Site visits are counted on the live pages by GoatCounter since ${visitsSince}; GitHub page views and clones come from the GitHub traffic API. Last collected ${new Date(D.updated).toLocaleString()}. ` +
     `GitHub keeps only 14 days, so monthly and yearly totals include only days collected since ${firstDate}. ` +
     `Visitor and cloner counts add up each day's unique count, so one person who returns on several days is counted once per day. ` +
     `Updated daily by a GitHub Action; this page reloads itself when new data arrives.`;

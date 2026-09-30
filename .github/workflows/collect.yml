@@ -16,6 +16,7 @@ jobs:
       - name: Fetch traffic
         env:
           GH_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "::error::Add a TRAFFIC_TOKEN repository secret (a token that can read traffic on your repos)."
