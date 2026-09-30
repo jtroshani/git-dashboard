@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Collect GitHub traffic for all owned repos and merge it into a local history.
+"""Collect visits to each of my GitHub Pages sites and merge them into a history.
 
-GitHub only keeps 14 days of traffic, so run this at least once a week (daily is
-best) to build up monthly / yearly totals. Requires the `gh` CLI, logged in.
+Visits are counted on the sites by GoatCounter; the `gh` CLI (logged in) lists
+the sites. Needs GOATCOUNTER_TOKEN; run it regularly to build up the history.
 """
 import json
 import os
@@ -17,6 +17,7 @@ DATA_DIR = os.path.join(ROOT, "data")
 HISTORY = os.path.join(DATA_DIR, "history.json")
 DATA_JS = os.path.join(DATA_DIR, "data.js")
 GH = os.environ.get("GH_BIN", "gh")
+SELF = "git-dashboard"  # this dashboard; not one of the tracked sites
 
 
 def gh(*args):
@@ -89,44 +90,26 @@ def main():
     about = json.load(open(about_file)) if os.path.exists(about_file) else {}
     owner = gh("api", "user")["login"]
     repos = gh("repo", "list", owner, "--limit", "1000", "--source",
-               "--json", "name,visibility,url,stargazerCount,description,homepageUrl")
+               "--json", "name,url,description")
 
+    sites = {}
     for r in repos:
         name = r["name"]
-        full = f"{owner}/{name}"
-        try:
-            views = gh("api", f"repos/{full}/traffic/views")
-            clones = gh("api", f"repos/{full}/traffic/clones")
-            referrers = gh("api", f"repos/{full}/traffic/popular/referrers")
-            paths = gh("api", f"repos/{full}/traffic/popular/paths")
-        except RuntimeError as e:
-            print(f"skip {full}: {e}", file=sys.stderr)
+        if name == SELF:
             continue
-
         try:
-            site = gh("api", f"repos/{full}/pages")["html_url"]
+            site = gh("api", f"repos/{owner}/{name}/pages")["html_url"]
         except RuntimeError:
-            site = r["homepageUrl"] or ""
+            continue  # no GitHub Pages site
         # Sites without an index.html need their page named explicitly.
-        if site and about.get(name, {}).get("page"):
+        if about.get(name, {}).get("page"):
             site = site.rstrip("/") + "/" + about[name]["page"]
-
-        entry = history["repos"].setdefault(name, {"days": {}})
-        entry.update(url=r["url"], visibility=r["visibility"],
-                     stars=r["stargazerCount"], description=r["description"] or "",
+        entry = history["repos"].get(name, {"days": {}})
+        entry.update(url=r["url"], description=r["description"] or "",
                      site=site, about=about.get(name, {}).get("about", ""))
-        days = entry["days"]
-        # Newer fetches overwrite older values for the same day (the most recent
-        # day is partial until it closes).
-        for v in views["views"]:
-            d = days.setdefault(v["timestamp"][:10], {})
-            d["views"], d["visitors"] = v["count"], v["uniques"]
-        for c in clones["clones"]:
-            d = days.setdefault(c["timestamp"][:10], {})
-            d["clones"], d["cloners"] = c["count"], c["uniques"]
-        entry["referrers"] = referrers
-        entry["paths"] = paths
-        print(f"ok   {full}")
+        sites[name] = entry
+        print(f"ok   {name}")
+    history["repos"] = sites
 
     collect_site_visits(history)
     history["owner"] = owner

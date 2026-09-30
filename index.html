@@ -35,7 +35,7 @@ h1 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
 .seg { display: inline-flex; background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 3px; }
 .seg button { border: 0; background: none; color: var(--text-secondary); font: inherit; padding: 6px 14px; border-radius: 6px; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--accent-bg); color: var(--text-primary); font-weight: 600; }
-.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 16px; }
 .tile, .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; }
 .tile { padding: 14px 16px; }
 .tile .label { color: var(--text-secondary); font-size: 12px; display: flex; align-items: center; gap: 6px; }
@@ -71,7 +71,6 @@ td.about { text-align: left; white-space: normal; min-width: 220px; max-width: 3
 .filter { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; min-height: 18px; }
 .filter button { font: inherit; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary); border-radius: 6px; padding: 1px 8px; cursor: pointer; margin-left: 6px; }
 @media (max-width: 760px) {
-  .tiles { grid-template-columns: 1fr 1fr; }
   .charts { grid-template-columns: 1fr; }
 }
 </style>
@@ -99,7 +98,7 @@ td.about { text-align: left; white-space: normal; min-width: 220px; max-width: 3
   </section>
 
   <section class="card">
-    <h2>By repository</h2>
+    <h2>By site</h2>
     <div class="hint">Click a name to open its site; click elsewhere in a row to filter the charts. Click a column header to sort.</div>
     <div class="table-wrap"><table id="tbl"></table></div>
   </section>
@@ -123,8 +122,6 @@ const iso = d => d.toISOString().slice(0, 10);
 const addDays = (s, n) => { const d = new Date(s + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return iso(d); };
 
 const repos = Object.keys(D.repos).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
-const allDates = repos.flatMap(r => Object.keys(D.repos[r].days));
-const firstDate = allDates.reduce((a, b) => a < b ? a : b);
 // Periods end today (UTC); today's count grows with each collection.
 const todayUTC = iso(new Date());
 const visitsSince = D.visits_since || todayUTC;
@@ -137,7 +134,7 @@ function sum(names, p, key) {
     if (d >= from && d <= to) t += v[key] || 0;
   return t;
 }
-function series(names, p, key, since = firstDate) {
+function series(names, p, key, since) {
   const n = Math.max(PERIODS[p], 14); const out = [];
   for (let i = n - 1; i >= 0; i--) {
     const d = addDays(anchor, -i); let t = 0;
@@ -196,17 +193,12 @@ function render() {
   document.getElementById("meta").textContent =
     `${D.owner} · ${repos.length} sites · ${PLABEL[period]}: ${from === to ? to : from + " → " + to} (UTC)`;
   document.getElementById("filter").innerHTML = selected
-    ? `Showing <b>${selected}</b><button id="clr">Show all repos</button>` : "Showing all repositories";
+    ? `Showing <b>${selected}</b><button id="clr">Show all sites</button>` : "Showing all sites";
   if (selected) document.getElementById("clr").onclick = () => { selected = null; render(); };
 
   const note = since => from < since ? `<div class="note">Tracking since ${since}</div>` : `<div class="note">${PDESC[period]}</div>`;
-  const perSite = repos.map(r => [r, sum([r], period, "site_visits")]).sort((a, b) => b[1] - a[1]);
-  const top = perSite[0][1] ? perSite[0] : null;
-  const active = perSite.filter(x => x[1]).length;
   document.getElementById("tiles").innerHTML =
-    `<div class="tile"><div class="label">Site visits${selected ? " · " + selected : ""}</div><div class="value">${fmt(sum(names, period, "site_visits"))}</div>${note(visitsSince)}</div>` +
-    `<div class="tile"><div class="label">Most visited site</div><div class="value" style="font-size:20px;padding:6px 0 4px">${top ? top[0] : "—"}</div><div class="note">${top ? fmt(top[1]) + " visits" : "no visits yet"}</div></div>` +
-    `<div class="tile"><div class="label">Sites with visits</div><div class="value">${active} <span style="font-size:16px;color:var(--text-muted)">/ ${repos.length}</span></div><div class="note">${PDESC[period]}</div></div>`;
+    `<div class="tile"><div class="label">Site visits${selected ? " · " + selected : ""}</div><div class="value">${fmt(sum(names, period, "site_visits"))}</div>${note(visitsSince)}</div>`;
 
   const n = Math.max(PERIODS[period], 14);
   document.getElementById("h1").textContent = `Last ${n} days · shaded days were before tracking started`;
@@ -223,7 +215,7 @@ function render() {
   const arrow = k => k === sortKey ? (sortDir < 0 ? " ↓" : " ↑") : "";
   const cols = m => ps.map(p => `<th data-k="${m}:${p}" class="${p === period ? "cur" : ""}">${PLABEL[p]}${arrow(m + ":" + p)}</th>`).join("");
   let h = `<thead><tr class="group"><th></th><th></th><th colspan="4">Site visits</th></tr>
-    <tr><th data-k="name">Repository${arrow("name")}</th><th class="about">What it is</th>${cols("visits")}</tr></thead><tbody>`;
+    <tr><th data-k="name">Site${arrow("name")}</th><th class="about">What it is</th>${cols("visits")}</tr></thead><tbody>`;
   for (const o of rows) {
     const cell = k => `<td class="${o[k] ? "" : "zero"} ${k.endsWith(":" + period) ? "cur" : ""}">${fmt(o[k])}</td>`;
     h += `<tr data-r="${o.name}" class="${o.name === selected ? "sel" : ""}"><td><a href="${D.repos[o.name].site || D.repos[o.name].url}" target="_blank" rel="noopener">${o.name}</a></td>

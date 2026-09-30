@@ -1,20 +1,55 @@
 {
- "AIHigherEdHub": {"about": "Searchable hub of articles and resources on AI in higher education, filterable by category and keyword."},
- "AIPMHub": {"about": "News hub on how AI is transforming project management: planning, risk, agile delivery, portfolio and tools. Refreshed every six hours."},
- "AlbanianRevolution": {"about": "Live global news tracker following Albania's Flamingo Revolution protests, with a running protest-day counter; articles refresh every six hours."},
- "ChangeManagement": {"about": "Change management builder: describe an organizational change and get a generated change package, dashboard and follow-up guidance."},
- "DATP": {"about": "Project Management Solution Builder: AI tool that turns plain-language process descriptions into editable workflow flowcharts."},
- "FlowChart": {"about": "AI workflow builder that turns plain-language descriptions, documents or images into editable flowcharts, with version history and saving."},
- "GanttChartBuilder": {"about": "Build project timelines as Gantt charts with task dependencies, from templates or your own tasks; export as PNG."},
- "ImageToPDF": {"about": "One-page tool that converts a JPG or PNG image into a downloadable A4 PDF in seconds."},
- "LinkSnap": {"about": "Instant peer-to-peer video calls and screen sharing in the browser through a shareable link; no accounts needed."},
- "NewsHub": {"about": "Earlier version of the AI in Higher Ed hub: searchable, category-filtered news about AI in universities.", "page": "ai-highered-hub.html"},
- "QuickSnap": {"about": "Tiny macOS menu-bar screenshot tool: press ⌘⇧2, drag a box, mark it up, and it's copied to your clipboard."},
- "ShortLink": {"about": "Simple URL shortener: paste a long link and get a short shareable one. Free, no sign-up."},
- "Smart-Backpack-Organizer": {"about": "Mobile-friendly app that tells parents exactly what their child needs to pack for school each day."},
- "TeachingwithAI": {"about": "Chapter-by-chapter notes on teaching with AI: AI literacy, classroom use, academic integrity, grading and feedback, with saveable notes."},
- "apartment-3d": {"about": "Interactive furnished 3D model of a 120 m² fourth-floor apartment with balcony, day/evening lighting and room labels.", "page": "apartment_3d.html"},
- "git-dashboard": {"about": "This dashboard: daily, weekly, monthly and yearly views and clones for all your GitHub repositories, collected every day."},
- "period-mirror": {"about": "Privacy-first menstrual health companion that learns your personal baseline and highlights meaningful changes; mobile-first and non-diagnostic."},
- "spot-flow-desk": {"about": "Hourly-updated dashboard of US spot Bitcoin, Ethereum, Solana and XRP ETF inflows and outflows by day, week, month and year."}
+ "AIHigherEdHub": {
+  "about": "Searchable hub of articles and resources on AI in higher education, filterable by category and keyword."
+ },
+ "AIPMHub": {
+  "about": "News hub on how AI is transforming project management: planning, risk, agile delivery, portfolio and tools. Refreshed every six hours."
+ },
+ "AlbanianRevolution": {
+  "about": "Live global news tracker following Albania's Flamingo Revolution protests, with a running protest-day counter; articles refresh every six hours."
+ },
+ "ChangeManagement": {
+  "about": "Change management builder: describe an organizational change and get a generated change package, dashboard and follow-up guidance."
+ },
+ "DATP": {
+  "about": "Project Management Solution Builder: AI tool that turns plain-language process descriptions into editable workflow flowcharts."
+ },
+ "FlowChart": {
+  "about": "AI workflow builder that turns plain-language descriptions, documents or images into editable flowcharts, with version history and saving."
+ },
+ "GanttChartBuilder": {
+  "about": "Build project timelines as Gantt charts with task dependencies, from templates or your own tasks; export as PNG."
+ },
+ "ImageToPDF": {
+  "about": "One-page tool that converts a JPG or PNG image into a downloadable A4 PDF in seconds."
+ },
+ "LinkSnap": {
+  "about": "Instant peer-to-peer video calls and screen sharing in the browser through a shareable link; no accounts needed."
+ },
+ "NewsHub": {
+  "about": "Earlier version of the AI in Higher Ed hub: searchable, category-filtered news about AI in universities.",
+  "page": "ai-highered-hub.html"
+ },
+ "QuickSnap": {
+  "about": "Tiny macOS menu-bar screenshot tool: press ⌘⇧2, drag a box, mark it up, and it's copied to your clipboard."
+ },
+ "ShortLink": {
+  "about": "Simple URL shortener: paste a long link and get a short shareable one. Free, no sign-up."
+ },
+ "Smart-Backpack-Organizer": {
+  "about": "Mobile-friendly app that tells parents exactly what their child needs to pack for school each day."
+ },
+ "TeachingwithAI": {
+  "about": "Chapter-by-chapter notes on teaching with AI: AI literacy, classroom use, academic integrity, grading and feedback, with saveable notes."
+ },
+ "apartment-3d": {
+  "about": "Interactive furnished 3D model of a 120 m² fourth-floor apartment with balcony, day/evening lighting and room labels.",
+  "page": "apartment_3d.html"
+ },
+ "period-mirror": {
+  "about": "Privacy-first menstrual health companion that learns your personal baseline and highlights meaningful changes; mobile-first and non-diagnostic."
+ },
+ "spot-flow-desk": {
+  "about": "Hourly-updated dashboard of US spot Bitcoin, Ethereum, Solana and XRP ETF inflows and outflows by day, week, month and year."
+ }
 }
