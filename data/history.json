@@ -2,6 +2,7 @@
  "owner": "jtroshani",
  "repos": {
   "AIHigherEdHub": {
+   "about": "Searchable hub of articles and resources on AI in higher education, filterable by category and keyword.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -103,6 +104,7 @@
    "visibility": "PUBLIC"
   },
   "AIPMHub": {
+   "about": "News hub on how AI is transforming project management: planning, risk, agile delivery, portfolio and tools. Refreshed every six hours.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -204,6 +206,7 @@
    "visibility": "PUBLIC"
   },
   "AlbanianRevolution": {
+   "about": "Live global news tracker following Albania's Flamingo Revolution protests, with a running protest-day counter; articles refresh every six hours.",
    "days": {
     "2026-09-15": {
      "cloners": 10,
@@ -305,6 +308,7 @@
    "visibility": "PUBLIC"
   },
   "ChangeManagement": {
+   "about": "Change management builder: describe an organizational change and get a generated change package, dashboard and follow-up guidance.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -406,6 +410,7 @@
    "visibility": "PUBLIC"
   },
   "DATP": {
+   "about": "Project Management Solution Builder: AI tool that turns plain-language process descriptions into editable workflow flowcharts.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -507,6 +512,7 @@
    "visibility": "PUBLIC"
   },
   "FlowChart": {
+   "about": "AI workflow builder that turns plain-language descriptions, documents or images into editable flowcharts, with version history and saving.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -608,6 +614,7 @@
    "visibility": "PUBLIC"
   },
   "GanttChartBuilder": {
+   "about": "Build project timelines as Gantt charts with task dependencies, from templates or your own tasks; export as PNG.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -709,6 +716,7 @@
    "visibility": "PUBLIC"
   },
   "ImageToPDF": {
+   "about": "One-page tool that converts a JPG or PNG image into a downloadable A4 PDF in seconds.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -810,6 +818,7 @@
    "visibility": "PUBLIC"
   },
   "LinkSnap": {
+   "about": "Instant peer-to-peer video calls and screen sharing in the browser through a shareable link; no accounts needed.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -911,6 +920,7 @@
    "visibility": "PUBLIC"
   },
   "NewsHub": {
+   "about": "Earlier version of the AI in Higher Ed hub: searchable, category-filtered news about AI in universities.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1006,12 +1016,13 @@
    "description": "",
    "paths": [],
    "referrers": [],
-   "site": "https://jtroshani.github.io/NewsHub/",
+   "site": "https://jtroshani.github.io/NewsHub/ai-highered-hub.html",
    "stars": 0,
    "url": "https://github.com/jtroshani/NewsHub",
    "visibility": "PUBLIC"
   },
   "QuickSnap": {
+   "about": "Tiny macOS menu-bar screenshot tool: press \u2318\u21e72, drag a box, mark it up, and it's copied to your clipboard.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1113,6 +1124,7 @@
    "visibility": "PUBLIC"
   },
   "ShortLink": {
+   "about": "Simple URL shortener: paste a long link and get a short shareable one. Free, no sign-up.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1214,6 +1226,7 @@
    "visibility": "PUBLIC"
   },
   "Smart-Backpack-Organizer": {
+   "about": "Mobile-friendly app that tells parents exactly what their child needs to pack for school each day.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1315,6 +1328,7 @@
    "visibility": "PUBLIC"
   },
   "TeachingwithAI": {
+   "about": "Chapter-by-chapter notes on teaching with AI: AI literacy, classroom use, academic integrity, grading and feedback, with saveable notes.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1416,6 +1430,7 @@
    "visibility": "PUBLIC"
   },
   "apartment-3d": {
+   "about": "Interactive furnished 3D model of a 120 m\u00b2 fourth-floor apartment with balcony, day/evening lighting and room labels.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1511,12 +1526,13 @@
    "description": "Interactive furnished 3D model of a fourth floor apartment",
    "paths": [],
    "referrers": [],
-   "site": "https://jtroshani.github.io/apartment-3d/",
+   "site": "https://jtroshani.github.io/apartment-3d/apartment_3d.html",
    "stars": 0,
    "url": "https://github.com/jtroshani/apartment-3d",
    "visibility": "PUBLIC"
   },
   "git-dashboard": {
+   "about": "This dashboard: daily, weekly, monthly and yearly views and clones for all your GitHub repositories, collected every day.",
    "days": {
     "2026-09-17": {
      "cloners": 0,
@@ -1612,6 +1628,7 @@
    "visibility": "PUBLIC"
   },
   "period-mirror": {
+   "about": "Privacy-first menstrual health companion that learns your personal baseline and highlights meaningful changes; mobile-first and non-diagnostic.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1713,6 +1730,7 @@
    "visibility": "PUBLIC"
   },
   "spot-flow-desk": {
+   "about": "Hourly-updated dashboard of US spot Bitcoin, Ethereum, Solana and XRP ETF inflows and outflows by day, week, month and year.",
    "days": {
     "2026-09-15": {
      "cloners": 0,
@@ -1821,5 +1839,5 @@
    "visibility": "PUBLIC"
   }
  },
- "updated": "2026-09-30T11:29:26+00:00"
+ "updated": "2026-09-30T12:06:04+00:00"
 }

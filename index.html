@@ -61,6 +61,8 @@ td.zero { color: var(--text-muted); }
 td.cur, th.cur { font-weight: 600; }
 td a { color: var(--text-primary); text-decoration: none; }
 td a:hover { text-decoration: underline; }
+th.about { text-align: left; cursor: default; }
+td.about { text-align: left; white-space: normal; min-width: 220px; max-width: 300px; color: var(--text-secondary); font-size: 12px; line-height: 1.4; }
 .refs { color: var(--text-secondary); font-size: 12px; white-space: normal; text-align: left; }
 .tip { position: fixed; pointer-events: none; background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.12); display: none; z-index: 5; }
@@ -224,16 +226,17 @@ function render() {
   rows.sort((a, b) => sortKey === "name" ? sortDir * a.name.localeCompare(b.name) : sortDir * (a[sortKey] - b[sortKey]) || a.name.localeCompare(b.name));
   const arrow = k => k === sortKey ? (sortDir < 0 ? " ↓" : " ↑") : "";
   const cols = m => ps.map(p => `<th data-k="${m}:${p}" class="${p === period ? "cur" : ""}">${PLABEL[p]}${arrow(m + ":" + p)}</th>`).join("");
-  let h = `<thead><tr class="group"><th></th><th colspan="4">Views</th><th colspan="4">Clones</th><th></th></tr>
-    <tr><th data-k="name">Repository${arrow("name")}</th>${cols("views")}${cols("clones")}<th style="text-align:left;cursor:default">Top referrers (14 d)</th></tr></thead><tbody>`;
+  let h = `<thead><tr class="group"><th></th><th></th><th colspan="4">Views</th><th colspan="4">Clones</th><th></th></tr>
+    <tr><th data-k="name">Repository${arrow("name")}</th><th class="about">What it is</th>${cols("views")}${cols("clones")}<th style="text-align:left;cursor:default">Top referrers (14 d)</th></tr></thead><tbody>`;
   for (const o of rows) {
     const cell = k => `<td class="${o[k] ? "" : "zero"} ${k.endsWith(":" + period) ? "cur" : ""}">${fmt(o[k])}</td>`;
     h += `<tr data-r="${o.name}" class="${o.name === selected ? "sel" : ""}"><td><a href="${D.repos[o.name].site || D.repos[o.name].url}" target="_blank" rel="noopener">${o.name}</a></td>
+      <td class="about">${D.repos[o.name].about || D.repos[o.name].description || "—"}</td>
       ${ps.map(p => cell("views:" + p)).join("")}${ps.map(p => cell("clones:" + p)).join("")}
       <td class="refs">${o.refs || "—"}</td></tr>`;
   }
   const tot = k => ps.map(p => `<td class="${p === period ? "cur" : ""}"><b>${fmt(sum(repos, p, k))}</b></td>`).join("");
-  h += `</tbody><tfoot><tr><td><b>Total</b></td>${tot("views")}${tot("clones")}<td></td></tr></tfoot>`;
+  h += `</tbody><tfoot><tr><td><b>Total</b></td><td></td>${tot("views")}${tot("clones")}<td></td></tr></tfoot>`;
   const tbl = document.getElementById("tbl"); tbl.innerHTML = h;
   tbl.querySelectorAll("thead th[data-k]").forEach(th => th.onclick = () => {
     const k = th.dataset.k; sortDir = k === sortKey ? -sortDir : (k === "name" ? 1 : -1); sortKey = k; render();

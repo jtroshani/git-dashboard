@@ -34,6 +34,11 @@ def load_history():
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
     history = load_history()
+    # Short hand-written summaries shown next to each repo on the dashboard
+    # (repos not listed fall back to their GitHub description), plus an
+    # optional "page" for sites whose entry point isn't index.html.
+    about_file = os.path.join(ROOT, "descriptions.json")
+    about = json.load(open(about_file)) if os.path.exists(about_file) else {}
     owner = gh("api", "user")["login"]
     repos = gh("repo", "list", owner, "--limit", "1000", "--source",
                "--json", "name,visibility,url,stargazerCount,description,homepageUrl")
@@ -54,11 +59,14 @@ def main():
             site = gh("api", f"repos/{full}/pages")["html_url"]
         except RuntimeError:
             site = r["homepageUrl"] or ""
+        # Sites without an index.html need their page named explicitly.
+        if site and about.get(name, {}).get("page"):
+            site = site.rstrip("/") + "/" + about[name]["page"]
 
         entry = history["repos"].setdefault(name, {"days": {}})
         entry.update(url=r["url"], visibility=r["visibility"],
                      stars=r["stargazerCount"], description=r["description"] or "",
-                     site=site)
+                     site=site, about=about.get(name, {}).get("about", ""))
         days = entry["days"]
         # Newer fetches overwrite older values for the same day (the most recent
         # day is partial until it closes).
