@@ -247,7 +247,7 @@ function render() {
     `Data from the GitHub traffic API, last collected ${new Date(D.updated).toLocaleString()}. ` +
     `GitHub keeps only 14 days, so monthly and yearly totals include only days collected since ${firstDate}. ` +
     `Visitor and cloner counts add up each day's unique count, so one person who returns on several days is counted once per day. ` +
-    `Updated daily by a GitHub Action.`;
+    `Updated daily by a GitHub Action; this page reloads itself when new data arrives.`;
 }
 
 document.querySelectorAll("#periods button").forEach(b => b.onclick = () => {
@@ -257,6 +257,18 @@ document.querySelectorAll("#periods button").forEach(b => b.onclick = () => {
 });
 addEventListener("resize", render);
 render();
+
+// Reload when the daily collection publishes new data (checked every 30 min
+// and whenever the tab becomes visible again).
+async function checkForUpdate() {
+  try {
+    const txt = await (await fetch("data/data.js?v=" + Date.now(), { cache: "no-store" })).text();
+    const m = txt.match(/"updated": "([^"]+)"/);
+    if (m && m[1] !== D.updated) location.reload();
+  } catch (e) {}
+}
+setInterval(checkForUpdate, 30 * 60 * 1000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) checkForUpdate(); });
 </script>
 </body>
 </html>
