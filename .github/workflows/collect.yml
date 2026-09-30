@@ -2,7 +2,7 @@ name: Collect traffic
 
 on:
   schedule:
-    - cron: "0 6 * * *" # daily, 06:00 UTC
+    - cron: "17 */3 * * *" # every 3 hours
   workflow_dispatch:
 
 permissions:
