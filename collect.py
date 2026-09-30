@@ -8,6 +8,7 @@ import json
 import os
 import subprocess
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -33,8 +34,11 @@ def goatcounter(path, **params):
     req = urllib.request.Request(url, headers={
         "Authorization": "Bearer " + os.environ["GOATCOUNTER_TOKEN"],
         "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return json.load(resp)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            return json.load(resp)
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"GoatCounter {path}: HTTP {e.code}: {e.read().decode()[:500]}")
 
 
 def collect_site_visits(history):
