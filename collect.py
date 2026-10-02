@@ -8,6 +8,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -34,11 +35,20 @@ def goatcounter(path, **params):
     req = urllib.request.Request(url, headers={
         "Authorization": "Bearer " + os.environ["GOATCOUNTER_TOKEN"],
         "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            return json.load(resp)
-    except urllib.error.HTTPError as e:
-        raise RuntimeError(f"GoatCounter {path}: HTTP {e.code}: {e.read().decode()[:500]}")
+    # GoatCounter occasionally answers a valid request with 404 or 5xx; those
+    # clear up on a retry.
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return json.load(resp)
+        except urllib.error.HTTPError as e:
+            err = f"GoatCounter {path}: HTTP {e.code}: {e.read().decode()[:500]}"
+            if e.code not in (404, 429) and e.code < 500:
+                break
+        except urllib.error.URLError as e:
+            err = f"GoatCounter {path}: {e.reason}"
+        time.sleep(10 * (attempt + 1))
+    raise RuntimeError(err)
 
 
 def collect_site_visits(history):
@@ -52,6 +62,22 @@ def collect_site_visits(history):
         return
     today = datetime.now(timezone.utc).date()
     start = (today - timedelta(days=13)).isoformat()
+    try:
+        totals = fetch_visits(history, start, today)
+    except RuntimeError as e:
+        # Keep the existing numbers; the next run re-reads the last 14 days.
+        print(f"::warning::{e}; keeping previous site visits")
+        return
+    for repo, entry in history["repos"].items():
+        for i in range(14):
+            day = (today - timedelta(days=i)).isoformat()
+            if day >= history.setdefault("visits_since", today.isoformat()):
+                entry["days"].setdefault(day, {})["site_visits"] = totals.get((repo, day), 0)
+    print(f"ok   site visits for {len({r for r, _ in totals})} sites")
+
+
+def fetch_visits(history, start, today):
+    """Return {(repo, day): visits} for start..today, paging through all paths."""
     totals, seen = {}, []
     while True:
         params = dict(start=start, end=today.isoformat(), limit=100)
@@ -68,13 +94,7 @@ def collect_site_visits(history):
                 key = (repo, st["day"])
                 totals[key] = totals.get(key, 0) + n
         if not page.get("more"):
-            break
-    for repo, entry in history["repos"].items():
-        for i in range(14):
-            day = (today - timedelta(days=i)).isoformat()
-            if day >= history.setdefault("visits_since", today.isoformat()):
-                entry["days"].setdefault(day, {})["site_visits"] = totals.get((repo, day), 0)
-    print(f"ok   site visits for {len({r for r, _ in totals})} sites")
+            return totals
 
 
 def load_history():

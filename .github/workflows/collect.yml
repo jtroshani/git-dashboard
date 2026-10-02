@@ -1,4 +1,4 @@
-name: Collect traffic
+name: Collect site visits
 
 on:
   schedule:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch traffic
+      - name: Fetch site visits
         env:
           GH_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
