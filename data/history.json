@@ -14,6 +14,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 1
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -34,6 +37,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 1
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -55,6 +61,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -74,6 +83,9 @@
      "site_visits": 2
     },
     "2026-10-03": {
+     "site_visits": 1
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -95,6 +107,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -114,6 +129,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 2
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -135,6 +153,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -154,6 +175,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 0
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -175,6 +199,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -195,6 +222,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -211,9 +241,12 @@
      "site_visits": 0
     },
     "2026-10-02": {
-     "site_visits": 1
+     "site_visits": 2
     },
     "2026-10-03": {
+     "site_visits": 0
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -234,6 +267,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 2
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -254,6 +290,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 2
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -274,6 +313,9 @@
      "site_visits": 1
     },
     "2026-10-03": {
+     "site_visits": 1
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -294,6 +336,9 @@
      "site_visits": 2
     },
     "2026-10-03": {
+     "site_visits": 5
+    },
+    "2026-10-04": {
      "site_visits": 0
     }
    },
@@ -315,6 +360,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "Period Mirror \u2014 a privacy-first personal menstrual health companion. Mobile-first PWA prototype: learns your own baseline and surfaces meaningful changes (\"Me vs. Me\"), never diagnostic.",
@@ -335,6 +383,9 @@
     },
     "2026-10-03": {
      "site_visits": 0
+    },
+    "2026-10-04": {
+     "site_visits": 0
     }
    },
    "description": "Hourly-refreshing dashboard of US spot BTC, ETH, SOL and XRP ETF inflows and outflows",
@@ -342,6 +393,6 @@
    "url": "https://github.com/jtroshani/spot-flow-desk"
   }
  },
- "updated": "2026-10-03T21:17:38+00:00",
+ "updated": "2026-10-04T05:55:54+00:00",
  "visits_since": "2026-09-30"
 }
