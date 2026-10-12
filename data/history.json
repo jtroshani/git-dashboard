@@ -39,6 +39,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -82,6 +85,9 @@
      "site_visits": 1
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -127,6 +133,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -170,6 +179,9 @@
      "site_visits": 0
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -215,6 +227,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -258,6 +273,9 @@
      "site_visits": 0
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -303,6 +321,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -346,6 +367,9 @@
      "site_visits": 1
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -391,6 +415,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -434,6 +461,9 @@
      "site_visits": 0
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -479,6 +509,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "A tiny macOS menu-bar app: press \u2318\u21e72, drag a box, mark it up, and it's on your clipboard.",
@@ -522,6 +555,9 @@
      "site_visits": 0
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -567,6 +603,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -610,6 +649,9 @@
      "site_visits": 0
     },
     "2026-10-11": {
+     "site_visits": 0
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -655,6 +697,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "Interactive furnished 3D model of a fourth floor apartment",
@@ -699,6 +744,9 @@
     },
     "2026-10-11": {
      "site_visits": 0
+    },
+    "2026-10-12": {
+     "site_visits": 0
     }
    },
    "description": "Period Mirror \u2014 a privacy-first personal menstrual health companion. Mobile-first PWA prototype: learns your own baseline and surfaces meaningful changes (\"Me vs. Me\"), never diagnostic.",
@@ -742,6 +790,9 @@
      "site_visits": 0
     },
     "2026-10-11": {
+     "site_visits": 1
+    },
+    "2026-10-12": {
      "site_visits": 0
     }
    },
@@ -750,6 +801,6 @@
    "url": "https://github.com/jtroshani/spot-flow-desk"
   }
  },
- "updated": "2026-10-11T19:34:21+00:00",
+ "updated": "2026-10-12T00:33:37+00:00",
  "visits_since": "2026-09-30"
 }
