@@ -111,6 +111,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -226,6 +229,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -343,6 +349,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -458,6 +467,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -575,6 +587,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -690,6 +705,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -807,6 +825,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -922,6 +943,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -1039,6 +1063,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1154,6 +1181,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -1271,6 +1301,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "A tiny macOS menu-bar app: press \u2318\u21e72, drag a box, mark it up, and it's on your clipboard.",
@@ -1386,6 +1419,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -1503,6 +1539,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1618,6 +1657,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -1735,6 +1777,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "Interactive furnished 3D model of a fourth floor apartment",
@@ -1850,6 +1895,9 @@
      "site_visits": 0
     },
     "2026-11-04": {
+     "site_visits": 0
+    },
+    "2026-11-05": {
      "site_visits": 0
     }
    },
@@ -1967,6 +2015,9 @@
     },
     "2026-11-04": {
      "site_visits": 0
+    },
+    "2026-11-05": {
+     "site_visits": 0
     }
    },
    "description": "Hourly-refreshing dashboard of US spot BTC, ETH, SOL and XRP ETF inflows and outflows",
@@ -1974,6 +2025,6 @@
    "url": "https://github.com/jtroshani/spot-flow-desk"
   }
  },
- "updated": "2026-11-04T23:41:02+00:00",
+ "updated": "2026-11-05T06:49:41+00:00",
  "visits_since": "2026-09-30"
 }
