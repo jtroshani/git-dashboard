@@ -135,6 +135,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -274,6 +277,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 0
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -415,6 +421,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -554,6 +563,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 0
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -695,6 +707,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -834,6 +849,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 0
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -975,6 +993,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1114,6 +1135,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 0
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -1255,6 +1279,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1394,6 +1421,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 0
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -1535,6 +1565,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "A tiny macOS menu-bar app: press \u2318\u21e72, drag a box, mark it up, and it's on your clipboard.",
@@ -1675,6 +1708,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "Paste a long link, get a short one. A clean single-page URL shortener by Jetmir Troshani.",
@@ -1814,6 +1850,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 1
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -1955,6 +1994,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -2094,6 +2136,9 @@
      "site_visits": 0
     },
     "2026-11-12": {
+     "site_visits": 0
+    },
+    "2026-11-13": {
      "site_visits": 0
     }
    },
@@ -2235,6 +2280,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "Period Mirror \u2014 a privacy-first personal menstrual health companion. Mobile-first PWA prototype: learns your own baseline and surfaces meaningful changes (\"Me vs. Me\"), never diagnostic.",
@@ -2375,6 +2423,9 @@
     },
     "2026-11-12": {
      "site_visits": 0
+    },
+    "2026-11-13": {
+     "site_visits": 0
     }
    },
    "description": "Hourly-refreshing dashboard of US spot BTC, ETH, SOL and XRP ETF inflows and outflows",
@@ -2382,6 +2433,6 @@
    "url": "https://github.com/jtroshani/spot-flow-desk"
   }
  },
- "updated": "2026-11-12T19:55:38+00:00",
+ "updated": "2026-11-13T01:50:54+00:00",
  "visits_since": "2026-09-30"
 }
