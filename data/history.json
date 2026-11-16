@@ -144,6 +144,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -292,6 +295,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 0
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -442,6 +448,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -591,6 +600,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -739,6 +751,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 1
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -889,6 +904,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1037,6 +1055,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 0
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -1187,6 +1208,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1335,6 +1359,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 0
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -1485,6 +1512,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -1633,6 +1663,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 0
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -1783,6 +1816,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "Paste a long link, get a short one. A clean single-page URL shortener by Jetmir Troshani.",
@@ -1931,6 +1967,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 0
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -2081,6 +2120,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "",
@@ -2229,6 +2271,9 @@
      "site_visits": 0
     },
     "2026-11-15": {
+     "site_visits": 0
+    },
+    "2026-11-16": {
      "site_visits": 0
     }
    },
@@ -2379,6 +2424,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "Period Mirror \u2014 a privacy-first personal menstrual health companion. Mobile-first PWA prototype: learns your own baseline and surfaces meaningful changes (\"Me vs. Me\"), never diagnostic.",
@@ -2528,6 +2576,9 @@
     },
     "2026-11-15": {
      "site_visits": 0
+    },
+    "2026-11-16": {
+     "site_visits": 0
     }
    },
    "description": "Hourly-refreshing dashboard of US spot BTC, ETH, SOL and XRP ETF inflows and outflows",
@@ -2535,6 +2586,6 @@
    "url": "https://github.com/jtroshani/spot-flow-desk"
   }
  },
- "updated": "2026-11-15T22:50:01+00:00",
+ "updated": "2026-11-16T06:32:26+00:00",
  "visits_since": "2026-09-30"
 }
